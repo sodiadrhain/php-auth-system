@@ -1,0 +1,166 @@
+body {
+	background-color: #eee;
+	font-family: monospace;
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+		text-align: center;
+		border-bottom: 5px solid white;
+}
+
+a {
+	color: blue;
+	text-decoration: unset;
+}
+
+nav h1 {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 45px;
+	margin: 50px  0px 0px 0px;
+}
+
+nav ul {
+	list-style: none;
+    display: inline-flex;
+}
+
+nav li {
+		margin: 0px 10px;
+}
+
+.index-text-bg {
+	font-size: 50px;
+	font-family: sans-serif;
+	font-weight: lighter;
+	text-align: center;
+	margin-bottom: 0px;
+
+}
+
+.index-text-sm {
+	text-align: center;
+	margin-top: 0px;
+
+}
+
+.index-button {
+	text-align: center;
+}
+
+button {
+	display: inline-flex;
+	font-family: monospace;
+	font-size: 18px;
+	cursor: pointer;
+	border: 1px solid;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.button-blue {
+	color: blue;
+	border-color: blue;
+}
+
+.button-blue:hover {
+	color: white;
+	background-color: blue;
+}
+
+.button-black {
+		color: black;
+		border-color: black;
+}
+
+.button-black:hover {
+	color: white;
+	background-color: black;
+}
+
+.button-submit {
+	color: white;
+	background-color: seagreen;
+	padding: 10px 100px;
+	border: none;
+}
+
+.form {
+	text-align: center;
+	margin: 20px 0px;
+}
+
+form input, select {
+	height: 35px;
+    width: 400px;
+    margin: 5px;
+    border-radius: 5px;
+    color: gray;
+    border: 1px solid lightgray;
+    padding-left: 10px;
+    background-color: aliceblue;
+}
+
+label {
+	position: absolute;
+    padding: 0px;
+    margin-left: -205px;
+}
+
+.alert {
+	padding: 15px;
+	margin: 15px 20%;
+	border-radius: 5px; 
+
+}
+
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-success hr { 
+	border-top-color: #b1dfbb;
+}
+
+.alert-success .alert-link {
+	color: #0b2e13;
+}
+
+.alert-info { 
+	color: #0c5460;
+	background-color: #d1ecf1;
+	border-color: #bee5eb;
+}
+
+.alert-info hr {
+	border-top-color: #abdde5;
+}
+
+.alert-info .alert-link {
+	color: #062c33;
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+.alert-danger hr {
+	border-top-color: #f1b0b7;
+}
+
+.alert-danger .alert-link { 
+	color:#491217;
+}
+
+.dashboard {
+	margin: 50px 0px; 
+	text-align: center;
+}
