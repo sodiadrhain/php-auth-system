@@ -1,6 +1,6 @@
 <?php include_once('lib/header.php'); 
 
-if(!isset($_SESSION['loggedIn'])){
+if(!is_user_loggedIn()){
     // redirect to dashboard
     header("Location: login.php");
 }
@@ -29,6 +29,9 @@ if ($_SESSION["role"] ==  "Admin") {
 	$access_level = "User";
 }
 ?>
+<br>
+<br>
+<a href="viewStaff.php">View all Staff</a> | <a href="viewPatients.php">View all Patients</a>
 <br>
 <br>
 <b>User Access Level: </b> <?php echo $access_level; ?>

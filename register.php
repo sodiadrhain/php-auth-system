@@ -5,7 +5,7 @@
 }
  ?>
 
-	<form method="post" action="processRegister.php" class="form">
+	<form method="POST" action="processRegister.php" class="form">
 		<h2>REGISTER</h2>
 		<p>All fields are required!!!</p>
             <?php  print_alert(); ?>
@@ -103,14 +103,36 @@
 		<div>
 			<label for="department">Department:</label>
 			<br>
-			<input <?php              
+						<select name="department">
+				<?php              
                     if(isset($_SESSION['department'])){
                         echo "value=" . $_SESSION['department'];                                                             
                     }                
-                ?> type="text" name="department" placeholder="Department" />
+                ?>
+				<option value="">Select</option>
+				<option <?php              
+                        if(isset($_SESSION['department']) && $_SESSION['department'] == 'Clinical Services'){
+                            echo "selected";                                                           
+                        }                
+                    ?>>
+					Clinical Services
+				</option>
+				<option <?php              
+                        if(isset($_SESSION['department']) && $_SESSION['department'] == 'Operational Services'){
+                            echo "selected";                                                           
+                        }                
+                    ?>>
+					Operational Services
+				</option>
+			</select>
 		</div>
 		<br>
 		<button type="submit" class="button-submit">Register</button>
+		<br>
+		<br>
+		Forgot Password? <a href="forgotPassword.php">Click here</a>
+		<br>
+		Already have an account? <a href="login.php">Login</a>
 	</form>
 
 <?php include_once('lib/footer.php'); ?>

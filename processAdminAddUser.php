@@ -15,7 +15,7 @@ $new_department = $_POST['department'];
 
         if($userExists){
             $_SESSION["message"] = "Adding User Failed, User already exits ";
-            header("Location: addUser.php");
+            header("Location: adminAddUser.php");
         } else {
         
     $allUsers = scandir("db/users/");     
@@ -39,6 +39,6 @@ $new_department = $_POST['department'];
 
     //redirect super admin
     $_SESSION["message"] = "User with First name: " . $new_first_name . " was a added succesfully";
-    header("Location: addUser.php");
+    header("Location: adminAddUser.php");
 }
 ?>

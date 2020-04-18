@@ -1,6 +1,12 @@
 <?php include_once('lib/header.php'); 
-if(isset($_SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
-    header("location: dashboard.php");
+if(is_user_loggedIn()){
+        		if (($_SESSION['role']) == 'Admin') {
+              		header("Location: adminDashboard.php");
+              	} elseif (($_SESSION['role']) == 'Medical Team (MT)') {
+              		header("Location: teamDashboard.php");
+              	} else {
+              		header("Location: patientDashboard.php");
+              	}
 }
 
 ?>
@@ -9,7 +15,7 @@ if(isset($_SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
 </p>
 	<br>
 	<p class="index-text-sm">
-		This hospital is built based on Start.NG PHP second task.
+		This hospital is built based on Start.NG PHP task project.
 	</p>
 	<p class="index-text-sm">
 		Be sure to get the best of whatever you ask for here.

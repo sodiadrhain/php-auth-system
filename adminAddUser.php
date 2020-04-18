@@ -2,7 +2,7 @@
  require_once('functions/alert.php');
  if ($_SESSION["role"] == "Admin") {
  ?>
- 	<form method="post" action="processAddUser.php" class="form">
+ 	<form method="POST" action="processAdminAddUser.php" class="form">
 		<h2>ADD A USER</h2>
 		<p>All fields are required!!!</p>
             <?php   

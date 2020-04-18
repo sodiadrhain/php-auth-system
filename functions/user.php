@@ -5,11 +5,9 @@ date_default_timezone_set("Africa/Lagos");
 
 function is_user_loggedIn(){
 
-    if($_SESSION['loggedIn'] && !empty($_SESSION['loggedIn'])) {
+    if(isset($_SESSION['loggedIn'])) {
         return true;
     }
-
-    return false;
 }
 
 function is_token_set(){
@@ -64,5 +62,10 @@ function save_user($userObject){
     file_put_contents("db/users/". $userObject['email'] . ".json", json_encode($userObject));
 }
 
+function show_users(){
+    $userEmail = "db/users/";
+    $allUsers = glob($userEmail . "*.json");
+    return $allUsers;  
+}
 
 ?>

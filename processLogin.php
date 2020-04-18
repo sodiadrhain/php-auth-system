@@ -46,17 +46,17 @@ if($errorCount > 0){
                 $_SESSION['department'] = $userObject->department;
                 $_SESSION['date_of_registration'] = $userObject->date_of_registration;
                 $date_of_registration = $_SESSION['date_of_registration'];
-                $date_of_registration = date('m/d/Y h:i A', $date_of_registration);
+                $date_of_registration = date('d/m/Y h:i A', $date_of_registration);
                 $_SESSION['date_of_registration'] = $date_of_registration;
                 $role = $userObject->designation;
-                $_SESSION['login_time'] = date('m/d/Y h:i A', time());
+                $_SESSION['login_time'] = date('d/m/Y h:i A', time());
 
               	if ($role == 'Admin') {
-              		redirect_to("dashboard.php");
+              		redirect_to("adminDashboard.php");
               	} elseif ($role == 'Medical Team (MT)') {
-              		redirect_to("team.php");
+              		redirect_to("teamDashboard.php");
               	} else {
-              		redirect_to("patient.php");
+              		redirect_to("patientDashboard.php");
               	}
                 
                 die();

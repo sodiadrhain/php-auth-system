@@ -1,12 +1,13 @@
 <?php include_once('lib/header.php'); 
 
-if(!isset($_SESSION['loggedIn'])){
+if(!is_user_loggedIn()){
     // redirect to dashboard
     header("Location: login.php");
 }
 
+
 ?>
-<div class="dashboard"><h2>MEDICAL TEAM(MT) DASHBOARD</h2>
+<div class="dashboard"><h2>PATIENT DASHBOARD</h2>
 
 Welcome, <?php echo $_SESSION['fullname'] ?>, You are logged in as (<?php echo $_SESSION['role'] ?>), and your ID is <?php echo $_SESSION['loggedIn'] ?>.
 
@@ -21,6 +22,9 @@ if ($_SESSION["role"] ==  "Admin") {
 ?>
 <br>
 <br>
+<a href="payBill.php">Pay Bills</a> | <a href="bookAppointment.php">Book Appointment</a>
+<br>
+<br>
 <b>User Access Level: </b> <?php echo $access_level; ?>
 <br>
 <b>Department: </b> <?php echo $_SESSION["department"]; ?>
@@ -29,5 +33,6 @@ if ($_SESSION["role"] ==  "Admin") {
 <br>
 <b>Date of Last Login: </b> <?php echo $_SESSION["login_time"]; ?>
 </div>
+
 
 <?php include_once('lib/footer.php'); ?>

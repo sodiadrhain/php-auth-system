@@ -93,7 +93,7 @@ button {
 	margin: 20px 0px;
 }
 
-form input, select {
+form input, select, textarea {
 	height: 35px;
     width: 400px;
     margin: 5px;
@@ -163,4 +163,15 @@ label {
 .dashboard {
 	margin: 50px 0px; 
 	text-align: center;
+}
+
+#table table {
+	display: inline;
+    text-align: center;
+    font-size: inherit;
+}
+
+#tr table tr {
+	background: red;
+    color: white;
 }
