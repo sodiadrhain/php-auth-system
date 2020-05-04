@@ -1,32 +1,30 @@
 <?php 
-include_once('lib/header.php'); 
-require_once('functions/appointments.php');
-require_once('functions/user.php');
+ include_once('lib/header.php'); 
+ require_once('functions/alert.php');
+ require_once('functions/appointments.php');
 
 if(!is_user_loggedIn()){
-  
+
     header("Location: login.php");
 }
 
 ?>
-<div class="dashboard"><h2>ALL APPOINTMENTS</h2>
-<?php
-    $department = $_SESSION["department"];
+<div class="dashboard">
+        <h2>TRANSACTION HISTORY</h2>
 
-    $countDept = count_appointment_dept($department);
-
-    if($countDept == 0){
-        echo "<h4>You Have no Pending Appointments</h4>";
+          <?php
+        $viewAppointments = view_appointment();
+    $countAllAppointment = count_appointment_user($_SESSION["email"]);
+    if($countAllAppointment === false){
+        echo "<h4>You Have no Pending Transactions</h4>";
     } else {
-        $viewAppointments = view_appointment($department);
-        echo " <table style='display: inline;
+
+        echo "
+        <table style='display: inline;
     text-align: center;
     font-size: inherit;'>
                 <tr style='background: red;
     color: white;'>
-                    <td>
-                    Patient's Name
-                    </td>
                     <td>
                     Nature of Appointment
                     </td>
@@ -39,6 +37,11 @@ if(!is_user_loggedIn()){
                     <td>
                     Time of Appointment
                     </td>
+                    <td>
+                    Status
+                    </td>
+                    <td>
+                    </td>
                 </tr>";
         foreach($viewAppointments as $viewAppointment){
             $appointmentString = file_get_contents($viewAppointment);
@@ -49,17 +52,12 @@ if(!is_user_loggedIn()){
             $patientAppointTime = $appointmentObject->time_appointment;
             $patientAppointComplaint = $appointmentObject->initial_complaint;
             $patientAppointNature = $appointmentObject->nature_appointment;
-            $userString = file_get_contents("db/users/".$patientEmail . ".json");
-            $userObject = json_decode($userString);
-            $patientName = $userObject->first_name." ".$userObject->last_name; 
-            if($patientDept === $department){
+            $patientPay = $appointmentObject->payment;
+            $appointmentId = $appointmentObject->id;
+
+            if($patientEmail === $_SESSION["email"] && $patientPay == 1){
             ?>
                 <tr>
-                    <td>
-                    <?php
-                    echo $patientName;
-                    ?>
-                    </td>
                     <td>
                     <?php
                     echo $patientAppointNature;
@@ -80,17 +78,25 @@ if(!is_user_loggedIn()){
                     echo $patientAppointTime;
                     ?> hrs
                     </td>
+                    <td>
+                    <?php
+                        echo "<font color='green'>PAID</font>";
+
+                    ?>
+                    </td>
+                    <td>
+                    <?php
+                        echo "- <a href='viewReceipt.php?appointment_num=$appointmentId'>View Receipt</a> -";
+                    ?>
+                    </td>
                 </tr>
             <?php
-            }
+            } 
         }
         echo "</table>";
     }
-
-?>
-        <br>
-        <br>        
-        <a href="index.php">Goto your Dashboard</a>
+?> 
 </div>
-
-<?php include_once('lib/footer.php'); ?>
+<?php 
+include_once('lib/footer.php'); 
+?>

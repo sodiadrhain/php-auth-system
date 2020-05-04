@@ -35,7 +35,7 @@ if($nature_appointment == "" || strlen($nature_appointment) < 5){
      set_alert('error', 'You must choose a Department');
         header("Location: bookAppointment.php");       
 } else{
-    $allAppointments = scandir("db/appointments/".$department."/");     
+    $allAppointments = scandir("db/appointments/");     
     $countAllAppointments = count($allAppointments);
     $newAppointmentId = ($countAllAppointments+1);
 
@@ -46,7 +46,8 @@ if($nature_appointment == "" || strlen($nature_appointment) < 5){
         'date_appointment'=>$date_appointment,
         'time_appointment'=>$time_appointment,
         'patient_email'=>$_SESSION["email"],
-        'department'=>$department
+        'department'=>$department,
+        'payment' => 0
     ];
 
     //save in the database;

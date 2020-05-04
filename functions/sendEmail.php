@@ -26,3 +26,23 @@ function send_mail(
     }
 
 }
+
+
+function send_success_trans_mail(
+    $subject = "", 
+    $message = "",
+    $email = ""
+){
+    $headers = "From: no-reply@sodiadrhainhos.org" . "\r\n" .
+    "CC: soji@sodiadrhainhos.org";
+
+    $send = mail($email,$subject,$message,$headers);
+
+    if($send){
+
+    } else{
+
+    }
+
+
+}

@@ -4,10 +4,10 @@ if(!is_user_loggedIn()){
     // redirect to dashboard
     header("Location: login.php");
 }
-
-
 ?>
 <div class="dashboard"><h2>PATIENT DASHBOARD</h2>
+
+
 
 Welcome, <?php echo $_SESSION['fullname'] ?>, You are logged in as (<?php echo $_SESSION['role'] ?>), and your ID is <?php echo $_SESSION['loggedIn'] ?>.
 

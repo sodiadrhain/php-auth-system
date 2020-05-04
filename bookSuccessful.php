@@ -16,7 +16,7 @@ if(!is_user_loggedIn()){
             ?>
             <br>
 
-        <a href="patientDashboard.php">Goto your Dashboard</a>
+        <a href="payBill.php">Click Here To Make Payment</a>
 </div>
 <?php 
 include_once('lib/footer.php'); 
