@@ -2,6 +2,7 @@
  include_once('lib/header.php'); 
  require_once('functions/alert.php');
  require_once('functions/appointments.php');
+ require_once('functions/transaction.php');
 
 if(!is_user_loggedIn()){
 
@@ -14,11 +15,14 @@ if(!is_user_loggedIn()){
 
           <?php
         $viewAppointments = view_appointment();
-    $countAllAppointment = count_appointment_user($_SESSION["email"]);
-    if($countAllAppointment === false){
-        echo "<h4>You Have no Pending Transactions</h4>";
-    } else {
-
+    $countAllTransactions = check_user_transactions($_SESSION["email"]);
+   if($countAllTransactions != true){
+        echo "<h4>You Currently Have No Transactions</h4>";
+   
+ } 
+    
+   
+    else {
         echo "
         <table style='display: inline;
     text-align: center;
@@ -94,8 +98,10 @@ if(!is_user_loggedIn()){
             } 
         }
         echo "</table>";
-    }
-?> 
+   } 
+?>         <br>
+        <br>        
+        <a href="payBill.php">Goto your Bills</a>
 </div>
 <?php 
 include_once('lib/footer.php'); 

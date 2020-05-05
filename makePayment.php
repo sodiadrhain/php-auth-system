@@ -94,6 +94,9 @@ if(!is_user_loggedIn()){
                     <td>
                     <?php
                     $patientPayCheck = $patientPay;
+                    $patientEmaile = $patientEmail;
+                    $patientFirstNamee = $patientFirstName;
+                    $patientLastNamee = $patientLastName;
                     if($patientPay === 1){
                         echo "<font color='green'>PAID</font>";
                     } else {
@@ -103,14 +106,15 @@ if(!is_user_loggedIn()){
                     </td>
                 </tr>
             <?php
+            
             } 
         }
         echo "</table>";
         
         if($patientPayCheck === 0){
+           
                 ?>
-        
-                
+
            <br>
             <br>
             <form>
@@ -122,6 +126,8 @@ if(!is_user_loggedIn()){
         
             }
                 ?>
+        <br>     
+        <a href="payBill.php">Goto your Bills</a>
         </div>
 <?php 
 include_once('lib/footer.php');
@@ -138,13 +144,13 @@ include_once('lib/footer.php');
     function payWithRave() {
         var x = getpaidSetup({
             PBFPubKey: API_publicKey,
-            customer_email: "<?php echo $patientEmail; ?>",
+            customer_email: "<?php echo $patientEmaile; ?>",
             amount: "<?php echo $appointmentPrice; ?>",
             customer_phone: "",
             currency: "NGN",
             payment_options: "card,account",
-            customer_firstname: "<?php echo $patientFirstName; ?>",
-            customer_lastname: "<?php echo $patientLastName; ?>",
+            customer_firstname: "<?php echo $patientFirstNamee; ?>",
+            customer_lastname: "<?php echo $patientLastNamee; ?>",
             txref: "rave-123456",
             meta: [{
                 metaname: "flightID",
@@ -161,8 +167,8 @@ include_once('lib/footer.php');
             var transactionId = response.tx.txRef;
             var paymentType = response.tx.paymentType;
             var amount = response.tx.amount;
-            var email = "<?php echo $patientEmail ?>";
-            var fullname = "<?php echo $patientFirstName." ".$patientLastName ?>";
+            var email = "<?php echo $patientEmaile ?>";
+            var fullname = "<?php echo $patientFirstNamee." ".$patientLastNamee ?>";
 
             
         if(response.data.status == "success" || response.tx.status == "successful") {

@@ -41,7 +41,7 @@
             file_put_contents("db/appointments/appointment-". $appointment_num. ".json", json_encode($appointmentObject));
 
             $subject = "Appointment Payment Successful";
-            $message = "This is to inform you that your recent transcation was done successful, Payment details can be seen from your Dashboard. Thankyou";
+            $message = "This is to inform you that your recent transaction was successful, Payment details can be seen from your Dashboard. Thankyou.";
 
             send_success_trans_mail($subject,$message,$email);
             

@@ -24,13 +24,9 @@ function count_appointment_user($email){
     $appointmentString = file_get_contents($allAppointment);
     $appointmentObject = json_decode($appointmentString);
     $patientEmail = $appointmentObject->patient_email;
-        if($patientEmail !== $email) {
-        $countAppointments = false;
-        return $countAppointments;
-    } else {
-        $countAppointments = true;
-        return $countAppointments;
-    }
+        if($patientEmail == $email) {
+        return true;
+    } 
     }
 }
 

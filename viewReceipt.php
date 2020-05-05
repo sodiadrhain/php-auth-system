@@ -13,12 +13,11 @@ if(!is_user_loggedIn()){
 
 <div class="dashboard">
 
-        <h2>VIEW PAYMENT RECEIPT</h2>
+        <h2>PAYMENT RECEIPT</h2>
             <?php  print_alert(); ?>
 
         <?php
-        $viewAppointments = view_appointment();
-
+        
         $countAllAppointments = $_GET["appointment_num"];
         if($countAllAppointments == ""){
             echo "<h4>Sorry, Cannot Fetch Appointment Details, Try again!!!</h4>";
@@ -49,6 +48,9 @@ if(!is_user_loggedIn()){
             }
             
 ?>
+        <br>
+        <br>        
+        <a href="patientTransactions.php">Goto your Transactions</a>
 </div>
 <?php 
         }

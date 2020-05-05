@@ -15,7 +15,7 @@ if(!is_user_loggedIn()){
           <?php
         $viewAppointments = view_appointment();
     $countAllAppointment = count_appointment_user($_SESSION["email"]);
-    if($countAllAppointment === false){
+    if(!$countAllAppointment){
         echo "<h4>You Have no Pending Bills</h4>";
     } else {
 
@@ -108,6 +108,9 @@ if(!is_user_loggedIn()){
         echo "</table>";
     }
 ?> 
+        <br>
+        <br>        
+        <a href="index.php">Goto your Dashboard</a>
 </div>
 <?php 
 include_once('lib/footer.php'); 

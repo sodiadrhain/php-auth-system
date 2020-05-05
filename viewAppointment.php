@@ -39,6 +39,11 @@ if(!is_user_loggedIn()){
                     <td>
                     Time of Appointment
                     </td>
+                    <td>
+                    Status
+                    </td>
+                    <td>
+                    </td>
                 </tr>";
         foreach($viewAppointments as $viewAppointment){
             $appointmentString = file_get_contents($viewAppointment);
@@ -49,6 +54,7 @@ if(!is_user_loggedIn()){
             $patientAppointTime = $appointmentObject->time_appointment;
             $patientAppointComplaint = $appointmentObject->initial_complaint;
             $patientAppointNature = $appointmentObject->nature_appointment;
+            $patientPay = $appointmentObject->payment;
             $userString = file_get_contents("db/users/".$patientEmail . ".json");
             $userObject = json_decode($userString);
             $patientName = $userObject->first_name." ".$userObject->last_name; 
@@ -79,6 +85,24 @@ if(!is_user_loggedIn()){
                     <?php
                     echo $patientAppointTime;
                     ?> hrs
+                    </td>
+                    <td>
+                    <?php
+                    if($patientPay === 1){
+                        echo "<font color='green'>PAID</font>";
+                    } else {
+                        echo "<font color='red'>UNPAID</font>";
+                    }
+                    ?>
+                    </td>
+                    <td>
+                    <?php
+                    if($patientPay === 1){
+                        echo "- Attend To -";
+                    } else {
+                        echo "";
+                    }
+                    ?>
                     </td>
                 </tr>
             <?php

@@ -31,7 +31,7 @@ if ($_SESSION["role"] ==  "Admin") {
 ?>
 <br>
 <br>
-<a href="viewStaff.php">View all Staff</a> | <a href="viewPatients.php">View all Patients</a>
+<a href="viewStaff.php">View all Staff</a> | <a href="viewPatients.php">View all Patients</a> | <a href="adminTransactions.php">View User Payments</a>
 <br>
 <br>
 <b>User Access Level: </b> <?php echo $access_level; ?>
